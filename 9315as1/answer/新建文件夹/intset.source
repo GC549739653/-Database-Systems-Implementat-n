@@ -1,0 +1,107 @@
+CREATE OR REPLACE FUNCTION intset_in(cstring)
+   RETURNS intSet
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OR REPLACE FUNCTION intset_out(intSet)
+   RETURNS cstring
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+
+CREATE TYPE intSet (
+   input = intset_in,
+   output = intset_out
+);
+
+CREATE FUNCTION intset_con(integer, intSet)
+   RETURNS bool
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+   
+CREATE OPERATOR <@ ( 
+   leftarg = integer,
+   rightarg = intSet,
+   procedure = intset_con,
+   commutator = <@
+);
+
+CREATE FUNCTION intset_cdn(intSet)
+   RETURNS integer
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+   
+CREATE OPERATOR @ ( 
+   rightarg = intSet,
+   procedure = intset_cdn
+);
+ 
+CREATE FUNCTION intset_sub(intSet,intSet)
+   RETURNS bool
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OPERATOR @> ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_sub,
+   commutator = @>
+);
+
+CREATE FUNCTION intset_eq(intSet,intSet)
+   RETURNS bool
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OPERATOR = ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_eq,
+   commutator = =
+);
+   
+CREATE FUNCTION intset_int(intSet,intSet)
+   RETURNS intSet
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OPERATOR && ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_int,
+   commutator = &&
+);
+   
+CREATE FUNCTION intset_uni(intSet,intSet)
+   RETURNS intSet
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+   
+CREATE OPERATOR || ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_uni,
+   commutator = ||
+);
+CREATE FUNCTION intset_dis(intSet,intSet)
+   RETURNS intSet
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+
+CREATE OPERATOR !! ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_dis,
+   commutator = !!
+);
+CREATE FUNCTION intset_dif(intSet,intSet)
+   RETURNS intSet
+   AS '_OBJWD_/intset'
+   LANGUAGE C IMMUTABLE STRICT;
+ 
+CREATE OPERATOR - ( 
+   leftarg = intSet,
+   rightarg = intSet,
+   procedure = intset_dif,
+   commutator = -
+);

@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 9315as1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\gc549\AppData\Local\Temp\RSP9C21.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/9315as1.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Users\gc549\Desktop\9315\9315as1\a1.cpp"
+"C:\Users\gc549\Desktop\9315\9315as1\a2.cpp"
+]
+Creating command line "cl.exe @C:\Users\gc549\AppData\Local\Temp\RSP9C21.tmp" 
+Creating temporary file "C:\Users\gc549\AppData\Local\Temp\RSP9C22.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/9315as1.pdb" /debug /machine:I386 /out:"Debug/9315as1.exe" /pdbtype:sept 
+.\Debug\a1.obj
+.\Debug\a2.obj
+.\Debug\a3.obj
+]
+Creating command line "link.exe @C:\Users\gc549\AppData\Local\Temp\RSP9C22.tmp"
+<h3>Output Window</h3>
+Compiling...
+a1.cpp
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(9) : error C2061: syntax error : identifier 'intset'
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(12) : error C2065: 'ARSIZE_ANY_EXHDR' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(12) : error C2065: 'a' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(15) : error C2227: left of '->data' must point to class/struct/union
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(17) : error C2065: 'k' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(32) : error C2065: 'intset' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(32) : error C2065: 'b' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(33) : error C2448: '<Unknown>' : function-style initializer appears to be a function definition
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(54) : error C2065: 'intset_con' : undeclared identifier
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(54) : error C2501: 'PG_FUNCTION_INFO_V1' : missing storage-class or type specifiers
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(58) : error C2146: syntax error : missing ';' before identifier 'intset_con'
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(58) : error C2501: 'Datum' : missing storage-class or type specifiers
+C:\Users\gc549\Desktop\9315\9315as1\a1.cpp(58) : fatal error C1004: unexpected end of file found
+a2.cpp
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+9315as1.exe - 13 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

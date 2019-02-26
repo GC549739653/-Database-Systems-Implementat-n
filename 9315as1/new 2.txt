@@ -1,0 +1,26 @@
+PG_FUNCTION_INFO_V1(intset_in);
+
+Datum
+intset_in(PG_FUNCTION_ARGS)
+{
+    char      *str = PG_GETARG_CSTRING(0);
+    inttext    *result;
+
+    /*if (isValid(str) == 0)
+        ereport(ERROR,
+                (errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
+                 errmsg("invalid input syntax for intset: \"%s\"",
+                        str)));
+        */
+        result  = (inttext *) palloc(VARHDRSZ + strlen(str));
+        result  -> length = (int)strlen(str);
+        SET_VARSIZE(result, VARHDRSZ + strlen(str));
+
+        memcpy(result->data, str, strlen(str));
+
+        ereport(NOTICE,
+                (errcode(ERRCODE_INVALID_TEXT_REPRESENTATION),
+                 errmsg("invalid input syntax for intset: \"%s\"",result->data)));
+    //result = preprocess(str);
+    PG_RETURN_POINTER(result);
+}
